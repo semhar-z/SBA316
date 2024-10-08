@@ -1,8 +1,14 @@
+
+
 body {
-    font-family: Arial, sans-serif;
+    background: gray;
+    color: #232323;
+    line-height: 30px;
+    font-size: 20px;
+    font-family: sans-serif;
     margin: 0;
-    padding: 20px;
-}
+    padding: 25px 50px;
+  }
 
 h1 {
     color: #333;
@@ -16,12 +22,12 @@ input {
     margin-right: 10px;
 }
 
-#loginContainer {
+#loginDiv {
     max-width: 300px;
     margin: auto;
 }
 
-#appContainer {
+#appDiv{
     max-width: 400px;
     margin: auto;
 }
