@@ -9,11 +9,11 @@
 <body>
     
     <div id="loginDiv">
-        <h1>User Login</h1>
+        <h2>User Login</h2>
         <form id="loginForm">
-            <input type="text" id="username" placeholder="Username" required>
-            <input type="password" id="password" placeholder="Password" required><br>
-            <button type="submit">Login</button>
+            <input class="input" type="text" id="username" placeholder="Username" required>
+            <input class="input" type="password" id="password" placeholder="Password" required><br>
+            <button class="loginOut" id="login" type="submit">Login</button>
         </form>
         <p id="loginMessage"></p>
     </div>
@@ -24,15 +24,32 @@
    
         <h1>My To-Do List</h1>
         <form id="taskForm">
-            <input type="text" id="taskInput" required placeholder="Enter a new task">
+            <input class="input" type="text" id="taskInput" required placeholder="Enter a new task">
             <button type="submit">Add Task</button>
         </form>
         <ul id="taskList"></ul>
-        <button id="logoutButton">Logout</button>
+        <button class="loginOut" id="logoutButton">Logout</button>
         
     </div>
 
-    <div id="setAside"> Do this later: </div>
+   <div id="templateClone">
+
+    <h5>Item title with description template here:</h5>
+    <div id="content"></div>
+
+    <template id="itemTemplate">
+      <div class="item">
+        <h3 class="title"></h3>
+        <p class="description"> </p>
+      </div>
+    </template>
+  
+    <button id="addItem">Add Item</button>
+
+    </div>
+
+    <!-- <div id="setAside"> Do this later: </div> -->
+
 
     <script src="/index.js"></script>
 

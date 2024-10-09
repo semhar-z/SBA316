@@ -9,8 +9,15 @@
     const logoutButton = document.getElementById("logoutButton");
 
     // const setAside = document.getElementById("setAside");
-    // const list = documet.qearySelector("#taskList");
-  
+    // const list = document.querySelector("#taskList");
+    
+ 
+ 
+    // querySelector to use css selctor to select DOM elements I used this for h1 tags
+    //  const headers = document.qearySelector("h1");
+    //  console.log(headers);
+
+
     
     // my user credentials for this webpage
     const validUsername = "user";
@@ -43,6 +50,22 @@
     // }
 
 // -----------------------------------------------------------------------------
+  
+usernameInput.addEventListener('input', () => {
+    if (usernameInput.value.trim() === '') {
+        loginMessage.textContent = "Username cannot be empty.";
+    } else {
+        loginMessage.textContent = ""; // Clear the message
+    }
+});
+
+passwordInput.addEventListener('input', () => {
+    if (passwordInput.value.trim() === '') {
+        loginMessage.textContent = "Password cannot be empty.";
+    } else {
+        loginMessage.textContent = ""; // Clear the message
+    }
+});
 
 
 
@@ -73,10 +96,21 @@
 
         // Add event listener to remove task on click
         li.addEventListener("click", () => {
-            li.remove(); // Remove the task from the list
+            li.parentNode.removeChild(li); // Remove the task from the list
+            alert("Task removed: " + task);
+            // li.remove(); // Remove the task from the list
         });
 
         taskList.appendChild(li); // Append the new task to the list
+        alert("Task added: " + task); // Alert on adding a new task
+
+
+        // Example of using nextElementSibling to show interaction
+    if (li.nextElementSibling) {
+        alert("The next task is: " + li.nextElementSibling.textContent);
+    } else {
+        alert("This is the last task.");
+    }
     }
 
     logoutButton.addEventListener("click", () => {
@@ -84,6 +118,7 @@
     });
 
     function logout() {
+        alert("You have logged out."); 
         document.getElementById("appDiv").style.display = "none";
         document.getElementById("loginDiv").style.display = "block";
         loginMessage.textContent = ""; // Clear login message
@@ -91,3 +126,45 @@
         passwordInput.value = ""; // Clear password
         taskList.innerHTML = ""; // Clear tasks
     };
+
+   // Creating Templated Content with DocumentFragment and cloneNode
+    const content = document.getElementById('content');
+    const template = document.getElementById('itemTemplate');
+    const button = document.getElementById('addItem');
+
+    console.log(button); // Should not be null
+    console.log(content); // Should not be null
+    
+    button.addEventListener("click", function() {
+      // Create a DocumentFragment to hold the cloned elements
+      const fragment = document.createDocumentFragment();
+      
+      // Clone the template content
+      const newItem = template.content.cloneNode(true);
+
+      // Set values for the cloned item
+      newItem.querySelector('.title').textContent = "New Item";
+      newItem.querySelector('.description').textContent = "This is a description for the new item.";
+
+      // Append the cloned item to the fragment
+      fragment.appendChild(newItem);
+
+      // Append the fragment to the main content
+      content.appendChild(fragment);
+    });
+
+
+    // Change background color of login button on click
+    document.getElementById("login").onclick = function(e) {
+        e.target.style.backgroundColor = 'green';
+      };
+
+      // Change background color of input fields on click by iteration
+      const inputs = document.getElementsByClassName("input");
+    
+        for (let i = 0; i < inputs.length; i++) {
+          inputs[i].onclick = function(e) {
+            e.target.style.backgroundColor = 'lightblue';
+          };
+        }
+        
