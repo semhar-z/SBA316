@@ -8,11 +8,7 @@
     const taskList = document.getElementById("taskList");
     const logoutButton = document.getElementById("logoutButton");
 
-    // const setAside = document.getElementById("setAside");
-    // const list = document.querySelector("#taskList");
     
- 
- 
     // querySelector to use css selctor to select DOM elements I used this for h1 tags
     //  const headers = document.qearySelector("h1");
     //  console.log(headers);
@@ -28,28 +24,6 @@
         login();
     });
 
-// ---------------------------------------------------------------------------
-    // setAside.addEventListener("drug", (event) => {
-    //     event.preventDefault();
-    //     setAside();
-    // });
-
-
-    // function setAside(){
-
-    //     const li = document.document.querySelctor("#li");
-    //     li.textContent = task;
-
-    //     // Add event listener to remove task on click
-    //     li.addEventListener("drug", () => {
-    //         li.remove(); // Remove the task from the list
-    //     });
-
-    //     list.appendChild(li); // Append the new task to the list
-
-    // }
-
-// -----------------------------------------------------------------------------
   
 usernameInput.addEventListener('input', () => {
     if (usernameInput.value.trim() === '') {
@@ -66,8 +40,6 @@ passwordInput.addEventListener('input', () => {
         loginMessage.textContent = ""; // Clear the message
     }
 });
-
-
 
     function login() {
         const username = usernameInput.value;
@@ -154,17 +126,21 @@ passwordInput.addEventListener('input', () => {
     });
 
 
-    // Change background color of login button on click
-    document.getElementById("login").onclick = function(e) {
-        e.target.style.backgroundColor = 'green';
-      };
+       // Get the logout and add item and login buttons
+const buttons = document.querySelectorAll('#logoutButton, #addItem, #login, #addTask');
 
-      // Change background color of input fields on click by iteration
-      const inputs = document.getElementsByClassName("input");
-    
-        for (let i = 0; i < inputs.length; i++) {
-          inputs[i].onclick = function(e) {
+// Iterate over the buttons and add event listeners
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function(e) {
+        e.target.style.backgroundColor = 'blue'; // Change color on click
+    });
+}
+
+// Change background color of input fields on click by iteration
+  const inputs = document.getElementsByClassName("input");
+   for (let i = 0; i < inputs.length; i++) {
+     inputs[i].onclick = function(e) {
             e.target.style.backgroundColor = 'lightblue';
           };
-        }
+    }
         
