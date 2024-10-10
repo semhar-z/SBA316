@@ -8,13 +8,6 @@
     const taskList = document.getElementById("taskList");
     const logoutButton = document.getElementById("logoutButton");
 
-    
-    // querySelector to use css selctor to select DOM elements I used this for h1 tags
-    //  const headers = document.qearySelector("h1");
-    //  console.log(headers);
-
-
-    
     // my user credentials for this webpage
     const validUsername = "user";
     const validPassword = "password";
@@ -103,9 +96,6 @@ passwordInput.addEventListener('input', () => {
     const content = document.getElementById('content');
     const template = document.getElementById('itemTemplate');
     const button = document.getElementById('addItem');
-
-    console.log(button); // Should not be null
-    console.log(content); // Should not be null
     
     button.addEventListener("click", function() {
       // Create a DocumentFragment to hold the cloned elements
@@ -116,7 +106,7 @@ passwordInput.addEventListener('input', () => {
 
       // Set values for the cloned item
       newItem.querySelector('.title').textContent = "New Item";
-      newItem.querySelector('.description').textContent = "This is a description for the new item.";
+      newItem.querySelector('.description').textContent = "Description for the new item.";
 
       // Append the cloned item to the fragment
       fragment.appendChild(newItem);
@@ -132,7 +122,7 @@ const buttons = document.querySelectorAll('#logoutButton, #addItem, #login, #add
 // Iterate over the buttons and add event listeners
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function(e) {
-        e.target.style.backgroundColor = 'blue'; // Change color on click
+        e.target.style.backgroundColor = 'lightblue'; // Change color on click
     });
 }
 
@@ -140,7 +130,7 @@ for (let i = 0; i < buttons.length; i++) {
   const inputs = document.getElementsByClassName("input");
    for (let i = 0; i < inputs.length; i++) {
      inputs[i].onclick = function(e) {
-            e.target.style.backgroundColor = 'lightblue';
+            e.target.style.backgroundColor = 'darkgray';
           };
     }
         
